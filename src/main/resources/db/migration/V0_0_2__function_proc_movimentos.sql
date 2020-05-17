@@ -10,8 +10,8 @@ CREATE OR REPLACE FUNCTION testebnp.proc_movimentos()
     VOLATILE 
 AS $BODY$
 	select dat_mes, dat_ano, p.cod_produto, des_produto,num_lancamento,des_descricao,val_valor
-		from testebnp.produto p
-		left join testebnp.movimento_manual m on m.cod_produto = p.cod_produto
+		from testebnp.movimento_manual m 
+		left join testebnp.produto p on m.cod_produto = p.cod_produto
 		order by dat_mes,dat_ano,num_lancamento; 
 		
 $BODY$;
